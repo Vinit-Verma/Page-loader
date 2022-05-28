@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+}
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ring {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: -30px;
+  border: solid 2px transparent;
+  border-radius: 50%;
+  border-top: solid 4px #24ecff;
+  /* border-bottom: solid 4px #24ecff; */
+  animation: animate 4s linear infinite;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.ring::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: turquoise;
+  border-radius: 50%;
+  top: 16px;
+  right: 10px;
+  box-shadow: 0 0 0 5px #24ecff33, 0 0 0 10px #24ecff22, 0 0 0 15px #24ecff11;
+}
+.ring:nth-child(2) {
+  animation: animate2 4s linear infinite;
+  animation-delay: -1s;
+  border-right: solid 4px #93ff2d;
+  border-top: solid 4px transparent;
+}
+.ring:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: initial;
+  width: 15px;
+  height: 15px;
+  background: #93ff2d;
+  border-radius: 50%;
+  top: 16px;
+  right: 10px;
+  box-shadow: 0 0 0 5px #93ff2d33, 0 0 0 10px #93ff2d22, 0 0 0 15px #93ff2d11;
+}
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.ring:nth-child(3) {
+  animation: animate2 4s linear infinite;
+  animation-delay: -2s;
+  position: absolute;
+  top: -73px;
+  border-top: solid 4px transparent;
+  border-right: solid 4px #e41cf8;
+}
+.ring:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  top: initial;
+  width: 15px;
+  height: 15px;
+  background: #e41cf8;
+  border-radius: 50%;
+  top: 16px;
+  right: 10px;
+  box-shadow: 0 0 0 5px #e41cf833, 0 0 0 10px #e41cf822, 0 0 0 15px #e41cf811;
+}
+.container p {
+  position: absolute;
+  color: white;
+  font-size: 1.5em;
+  font-family: consolas;
+  bottom: -80px;
+  letter-spacing: 0.15em;
+}
